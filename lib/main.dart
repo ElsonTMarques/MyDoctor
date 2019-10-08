@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_doctor/receita/receita.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
+    Receita.tag: (context) => Receita(),
   };
 
   @override
