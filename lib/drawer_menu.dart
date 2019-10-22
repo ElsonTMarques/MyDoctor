@@ -19,26 +19,24 @@ class DrawerMenu extends StatelessWidget {
             children: <Widget>[
               _createHeader(),
               _createDrawerItem(
-                  icon: Icons.contacts,
+                  icon: Icons.assignment,
                   text: 'Receitas',
                   onTap: () {
                     Navigator.of(context).pushNamed(Receita.tag);
                   }),
-                Divider(),
+              Divider(),
               _createDrawerItem(
-                icon: Icons.contacts,
+                icon: Icons.local_pharmacy,
                 text: 'Remédios',
               ),
-              
               Divider(),
               _createDrawerItem(
-                icon: Icons.contacts,
+                icon: Icons.local_hospital,
                 text: 'Médico',
               ),
-              
               Divider(),
               _createDrawerItem(
-                icon: Icons.contacts,
+                icon: Icons.exit_to_app,
                 text: 'Sair',
               ),
               ListTile(
@@ -51,10 +49,13 @@ class DrawerMenu extends StatelessWidget {
   }
 
   Widget _createHeader() {
-     return UserAccountsDrawerHeader(
+    return UserAccountsDrawerHeader(
       accountName: Text('Moisés Coelho'),
-      accountEmail: Text('160002103@aluno.sj.unisal.br'),
-      currentAccountPicture: CircleAvatar(child: Text('M',style: TextStyle(fontSize: 32)),backgroundColor: Colors.grey,),
+      // accountEmail: Text('160002103@aluno.sj.unisal.br'),
+      currentAccountPicture: CircleAvatar(
+        child: Text('M', style: TextStyle(fontSize: 32)),
+        backgroundColor: Colors.grey,
+      ),
       decoration: BoxDecoration(
         color: Color(0xffABCFF2),
       ),
