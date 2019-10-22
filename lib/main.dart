@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_doctor/receita/receita.dart';
+import 'package:my_doctor/receita.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 

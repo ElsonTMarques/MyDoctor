@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:my_doctor/receita/receita.dart';
+import 'package:my_doctor/receita.dart';
 
 class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: _createDrawerList(context),
+    );
   }
 
   Widget _createDrawerList(BuildContext context) {

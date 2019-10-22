@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_doctor/receita/receita.dart';
+import 'package:my_doctor/drawer_menu.dart';
+import 'package:my_doctor/receita.dart';
 
 class HomePage extends StatelessWidget {
   static String tag = 'home-page';
@@ -53,6 +54,7 @@ class HomePage extends StatelessWidget {
         title: Text("Seja Bem-Vindo, Moisés"),
         backgroundColor: Color(0xffABCFF2),
       ),
+      drawer: DrawerMenu(),
       body: body,
       //drawer: _createDrawerList(context),
     );
