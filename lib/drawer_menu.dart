@@ -24,14 +24,19 @@ class DrawerMenu extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushNamed(Receita.tag);
                   }),
+                Divider(),
               _createDrawerItem(
                 icon: Icons.contacts,
                 text: 'Remédios',
               ),
+              
+              Divider(),
               _createDrawerItem(
                 icon: Icons.contacts,
                 text: 'Médico',
               ),
+              
+              Divider(),
               _createDrawerItem(
                 icon: Icons.contacts,
                 text: 'Sair',
@@ -46,30 +51,14 @@ class DrawerMenu extends StatelessWidget {
   }
 
   Widget _createHeader() {
-    return DrawerHeader(
-        margin: EdgeInsets.zero,
-        padding: EdgeInsets.zero,
-        decoration: BoxDecoration(
-          color: Color(0xffABCFF2),
-        ),
-        child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.all(20.0),
-                child: CircleAvatar(
-                  maxRadius: 35,
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage('assets/default_person.jpg'),
-                ),
-              ),
-              Text("Moisés Coelho",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w900)),
-            ]));
+     return UserAccountsDrawerHeader(
+      accountName: Text('Moisés Coelho'),
+      accountEmail: Text('160002103@aluno.sj.unisal.br'),
+      currentAccountPicture: CircleAvatar(child: Text('M',style: TextStyle(fontSize: 32)),backgroundColor: Colors.grey,),
+      decoration: BoxDecoration(
+        color: Color(0xffABCFF2),
+      ),
+    );
   }
 
   Widget _createDrawerItem(

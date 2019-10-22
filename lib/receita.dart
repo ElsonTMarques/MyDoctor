@@ -5,18 +5,6 @@ class Receita extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    // final body = Container(
-    //   width: MediaQuery.of(context).size.width,
-    //   padding: EdgeInsets.all(28.0),
-    //   decoration: BoxDecoration(
-    //     gradient: LinearGradient(colors: [
-    //       Colors.blue,
-    //       Colors.lightBlueAccent,
-    //     ]),
-    //   ),
-    // );
-
     final body = Container(
       child: _createMainList()
     );
@@ -51,6 +39,4 @@ class Receita extends StatelessWidget {
         },
       );
   }
-
-  
 }
