@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_doctor/receita.dart';
+import 'package:my_doctor/home_page.dart';
+import 'package:my_doctor/login_page.dart';
+import 'package:my_doctor/medicine_page.dart';
 
 class DrawerMenu extends StatelessWidget {
   @override
@@ -22,12 +24,16 @@ class DrawerMenu extends StatelessWidget {
                   icon: Icons.assignment,
                   text: 'Receitas',
                   onTap: () {
-                    Navigator.of(context).pushNamed(Receita.tag);
-                  }),
+                    Navigator.of(context).pushNamed(HomePage.tag);
+                  }
+              ),
               Divider(),
               _createDrawerItem(
                 icon: Icons.local_pharmacy,
                 text: 'Remédios',
+                onTap: () {
+                  Navigator.of(context).pushNamed(Medicine.tag);
+                }
               ),
               Divider(),
               _createDrawerItem(
@@ -38,6 +44,9 @@ class DrawerMenu extends StatelessWidget {
               _createDrawerItem(
                 icon: Icons.exit_to_app,
                 text: 'Sair',
+                onTap: () {
+                  Navigator.of(context).pushNamed(LoginPage.tag);
+                }
               ),
               ListTile(
                 title: Text('0.0.1'),

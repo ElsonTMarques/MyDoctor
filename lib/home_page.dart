@@ -1,53 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_doctor/drawer_menu.dart';
-import 'package:my_doctor/receita.dart';
 
 class HomePage extends StatelessWidget {
   static String tag = 'home-page';
 
   @override
   Widget build(BuildContext context) {
-    final alucard = Hero(
-      tag: 'hero',
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: CircleAvatar(
-          radius: 72.0,
-          backgroundColor: Colors.transparent,
-          backgroundImage: AssetImage('assets/alucard.jpg'),
-        ),
-      ),
-    );
-
-    final welcome = Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        'Welcome Alucard',
-        style: TextStyle(fontSize: 28.0, color: Colors.white),
-      ),
-    );
-
-    final lorem = Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        'Mussum ipsum cacildsssss, vidis litro abertis. Consetis adipiscings elitis. Pra lá, depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.',
-        style: TextStyle(fontSize: 16.0, color: Colors.white),
-      ),
-    );
-
-    final body = Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(28.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Colors.blue,
-          Colors.lightBlueAccent,
-        ]),
-      ),
-      child: Column(
-        children: <Widget>[alucard, welcome, lorem],
-      ),
-    );
+    final body = Container(child: _createMainList());
 
     return Scaffold(
       appBar: AppBar(
@@ -55,7 +14,92 @@ class HomePage extends StatelessWidget {
         backgroundColor: Color(0xffABCFF2),
       ),
       drawer: DrawerMenu(),
-      body: body
+      body: body,
+    );
+  }
+
+  Widget _createMainList() {
+    final titles = [
+      'bike',
+      'boat',
+      'bus',
+    ];
+
+    final icons = [
+      Icons.directions_bike,
+      Icons.directions_boat,
+      Icons.directions_bus,
+    ];
+
+    return ListView.builder(
+      itemCount: titles.length,
+      itemBuilder: (context, index) {
+        return Container(
+            width: 200,
+            child: Card(
+              shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+              ),
+              elevation: 10,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                   leading: Icon(Icons.local_hospital, size: 70),
+                    title: Text('Dipirona',
+                        style: TextStyle(color: Colors.black)),
+                    subtitle:
+                      Container(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Remédio para Dor de Cabeça',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                              )
+                            ),
+                            Text(
+                              'Dr Elsito Viadito',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                              )
+                            ),
+                            Text(
+                              ' - Hospital Copo Sujo',
+                              style: TextStyle(
+                                color: Colors.black,
+                              )
+                            ),
+                            Divider(),
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.watch_later,
+                                ),
+                                Text(
+                                'Proxima Dose em 8h00',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w900,
+                                )
+                                ),
+                              ],
+                            ),
+                            
+                          ]
+                        ),
+                      ),
+                  ),
+                ],
+              )
+            )
+        );
+      },
     );
   }
 }
