@@ -55,7 +55,7 @@ class Receita extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     const ListTile(
-                      leading: Icon(Icons.album, size: 70),
+                      leading: Icon(Icons.local_hospital, size: 70),
                       title: Text('Dipirona',
                           style: TextStyle(color: Colors.black)),
                       subtitle:

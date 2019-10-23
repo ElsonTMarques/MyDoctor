@@ -51,7 +51,7 @@ class DrawerMenu extends StatelessWidget {
   Widget _createHeader() {
     return UserAccountsDrawerHeader(
       accountName: Text('Moisés Coelho'),
-      // accountEmail: Text('160002103@aluno.sj.unisal.br'),
+      accountEmail: Text('160002103@aluno.sj.unisal.br'),
       currentAccountPicture: CircleAvatar(
         child: Text('M', style: TextStyle(fontSize: 32)),
         backgroundColor: Colors.grey,
