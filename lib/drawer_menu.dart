@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_doctor/doctor_page.dart';
 import 'package:my_doctor/home_page.dart';
 import 'package:my_doctor/login_page.dart';
 import 'package:my_doctor/medicine_page.dart';
@@ -24,7 +25,7 @@ class DrawerMenu extends StatelessWidget {
                   icon: Icons.assignment,
                   text: 'Receitas',
                   onTap: () {
-                    Navigator.of(context).pushNamed(HomePage.tag);
+                    Navigator.of(context).popAndPushNamed(HomePage.tag);
                   }
               ),
               Divider(),
@@ -32,20 +33,23 @@ class DrawerMenu extends StatelessWidget {
                 icon: Icons.local_pharmacy,
                 text: 'Remédios',
                 onTap: () {
-                  Navigator.of(context).pushNamed(Medicine.tag);
+                  Navigator.of(context).popAndPushNamed(Medicine.tag);
                 }
               ),
               Divider(),
               _createDrawerItem(
                 icon: Icons.local_hospital,
                 text: 'Médico',
+                onTap: () {
+                  Navigator.of(context).popAndPushNamed(DoctorPage.tag);
+                }
               ),
               Divider(),
               _createDrawerItem(
                 icon: Icons.exit_to_app,
                 text: 'Sair',
                 onTap: () {
-                  Navigator.of(context).pushNamed(LoginPage.tag);
+                  Navigator.of(context).popAndPushNamed(LoginPage.tag);
                 }
               ),
               ListTile(

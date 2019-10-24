@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_doctor/doctor_page.dart';
 import 'package:my_doctor/home_page.dart';
 import 'package:my_doctor/medicine_page.dart';
 import 'login_page.dart';
@@ -10,12 +11,13 @@ class MyApp extends StatelessWidget {
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
     Medicine.tag: (context) => Medicine(),
+    DoctorPage.tag: (context) => DoctorPage(),
   };
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Kodeversitas',
+      title: 'MyDoctor',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
