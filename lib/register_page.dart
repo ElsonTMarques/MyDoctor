@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_doctor/register_page.dart';
 import 'home_page.dart';
 
-class LoginPage extends StatefulWidget {
-  static String tag = 'login-page';
+class RegisterPage extends StatefulWidget {
+  static String tag = 'register-page';
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _RegisterPageState createState() => new _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -20,10 +19,15 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    final emailLabel = Text(
+        'E-mail',
+        style: TextStyle(color: Colors.black),
+    );
+
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: '160002103@aluno.sj.unisal.br',
+      initialValue: '',
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -33,9 +37,19 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    final passwordLabel = Text(
+        'Senha',
+        style: TextStyle(color: Colors.black),
+    );
+
+    final sigInLabel = Text(
+        'Cadastre-se no MyDoctor!',
+        style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w900),
+    );
+
     final password = TextFormField(
       autofocus: false,
-      initialValue: 'qualquersenha',
+      initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Senha',
@@ -46,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    final loginButton = Padding(
+    final registerButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
@@ -57,18 +71,8 @@ class _LoginPageState extends State<LoginPage> {
         },
         padding: EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
-        child: Text('Entrar', style: TextStyle(color: Colors.white)),
+        child: Text('Cadastrar', style: TextStyle(color: Colors.white)),
       ),
-    );
-
-    final registerLabel = FlatButton(
-      child: Text(
-        'Cadastre-se',
-        style: TextStyle(color: Colors.black),
-      ),
-      onPressed: () {
-         Navigator.of(context).pushNamed(RegisterPage.tag);
-      },
     );
 
     return Scaffold(
@@ -79,13 +83,15 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
           children: <Widget>[
             logo,
+            sigInLabel,
             SizedBox(height: 48.0),
+            emailLabel,
             email,
             SizedBox(height: 8.0),
+            passwordLabel,
             password,
             SizedBox(height: 24.0),
-            loginButton,
-            registerLabel
+            registerButton,
           ],
         ),
       ),
