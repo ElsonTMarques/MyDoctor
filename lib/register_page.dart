@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_doctor/login_page.dart';
 import 'home_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -75,6 +76,16 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
 
+    final loginLabel = FlatButton(
+      child: Text(
+        'Ja é cadastrado? Faça o Login!',
+        style: TextStyle(color: Colors.black),
+      ),
+      onPressed: () {
+         Navigator.of(context).pushNamed(LoginPage.tag);
+      },
+    );
+
     return Scaffold(
       backgroundColor: Color(0xffABCFF2),
       body: Center(
@@ -92,6 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
             password,
             SizedBox(height: 24.0),
             registerButton,
+            loginLabel,
           ],
         ),
       ),
