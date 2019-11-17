@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_doctor/doctor_page.dart';
-import 'package:my_doctor/home_page.dart';
-import 'package:my_doctor/login_page.dart';
-import 'package:my_doctor/medicine_page.dart';
+import 'package:my_doctor/services/auth.dart';
+import 'package:my_doctor/views/doctor_page.dart';
+import 'package:my_doctor/views/home_page.dart';
+import 'package:my_doctor/views/login_page.dart';
+import 'package:my_doctor/views/medicine_page.dart';
 
 class DrawerMenu extends StatelessWidget {
   @override
@@ -49,6 +50,7 @@ class DrawerMenu extends StatelessWidget {
                 icon: Icons.exit_to_app,
                 text: 'Sair',
                 onTap: () {
+                  Auth.signOut();
                   Navigator.of(context).popAndPushNamed(LoginPage.tag);
                 }
               ),
