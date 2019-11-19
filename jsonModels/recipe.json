@@ -1,0 +1,8 @@
+{
+    "idReceita" : "zxxxxxxxxxxx",
+    "remedio" : "Nome do Remedio",
+    "descricaoRemedio" : "Remedio para dor X",
+    "nomeDoutor": "Doutor quem receitou (nome)",
+    "nomeHospital": "Hospital Unisal",
+    "tempoProximaDose": "8h00"
+}

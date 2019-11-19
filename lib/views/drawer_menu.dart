@@ -1,11 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:my_doctor/models/user.dart';
 import 'package:my_doctor/services/auth.dart';
 import 'package:my_doctor/views/doctor_page.dart';
 import 'package:my_doctor/views/home_page.dart';
 import 'package:my_doctor/views/login_page.dart';
 import 'package:my_doctor/views/medicine_page.dart';
 
-class DrawerMenu extends StatelessWidget {
+class DrawerMenu extends StatefulWidget{
+
+  @override
+  _DrawerMenuState createState() => _DrawerMenuState();
+}
+
+class _DrawerMenuState extends State<DrawerMenu> {
+
+  User _user = new User();
+
+  @override
+  void initState() {
+    Auth.getUserLocal().then(_onGetUserLocalSuccess);
+    super.initState();
+  }
+
+  void _onGetUserLocalSuccess(User user) {
+    setState(() {
+      _user = user;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,10 +87,10 @@ class DrawerMenu extends StatelessWidget {
 
   Widget _createHeader() {
     return UserAccountsDrawerHeader(
-      accountName: Text('Moisés Coelho'),
-      accountEmail: Text('160002103@aluno.sj.unisal.br'),
+      accountName: Text(_user?.name ?? ""),
+      accountEmail: Text(_user?.email ?? ""),
       currentAccountPicture: CircleAvatar(
-        child: Text('M', style: TextStyle(fontSize: 32)),
+        child: Text(_user?.getInitials() ?? '', style: TextStyle(fontSize: 32)),
         backgroundColor: Colors.grey,
       ),
       decoration: BoxDecoration(

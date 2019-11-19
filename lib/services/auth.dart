@@ -14,8 +14,6 @@ class Auth {
 
   static Future<String> signUp(String email, String password) async {
     final auth = FirebaseAuth.instance;
-    print(email);
-    print(password);
     final result = await auth.createUserWithEmailAndPassword(
         email: email, password: password);
     return result.user.uid;
@@ -60,11 +58,12 @@ class Auth {
 
   static Future<User> getUser(String userId) {
     if (userId != null) {
+      
       return Firestore.instance
           .collection('users')
           .document(userId)
           .get()
-          .then((documentSnapshot) => User.fromDocument(documentSnapshot));
+          .then((documentSnapshot) => User.fromDocument(documentSnapshot),);
     } else {
       print('firestore userId can not be null');
       return null;
