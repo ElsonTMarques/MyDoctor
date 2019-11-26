@@ -64,6 +64,10 @@ class _MedicinePageState extends State<Medicine> {
   Widget _buildCard(document) {
     final doctorObject = MedicineObject.fromDocument(document);
 
+    if (!doctorObject.produto
+        .toLowerCase()
+        .contains(_medicalNameFilter.toLowerCase())) return SizedBox();
+
     return Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
@@ -103,10 +107,7 @@ class _MedicinePageState extends State<Medicine> {
 
   Widget _createMainList() {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance
-          .collection('medicines_objects')
-          .where('produto', isEqualTo: _medicalNameFilter)
-          .snapshots(),
+      stream: Firestore.instance.collection('medicines_objects').snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError)
           return Common.errorContainer(error: snapshot.error);
