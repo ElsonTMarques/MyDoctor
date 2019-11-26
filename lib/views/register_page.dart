@@ -180,7 +180,7 @@ class _RegisterPageState extends State<RegisterPage> {
         .catchError((error) {
       Flushbar(
         title: 'Erro',
-        message: error.toString(),
+        message: showHandleMessages(error.code),
         duration: Duration(seconds: 3),
       )..show(context);
     });
@@ -199,5 +199,27 @@ class _RegisterPageState extends State<RegisterPage> {
       message: 'Usuário registrado com sucesso!',
       duration: Duration(seconds: 2),
     )..show(context);
+
+    Navigator.of(context).pushNamed(LoginPage.tag);
+  }
+
+  String showHandleMessages(String errorCode){
+    if(errorCode == "ERROR_INVALID_EMAIL"){
+      return "Formato de e-mail inválido";
+    }
+
+    if(errorCode == "ERROR_USER_NOT_FOUND"){
+      return "E-mail ou senha inválidos";
+    }
+
+    if(errorCode == "ERROR_WRONG_PASSWORD"){
+      return "E-mail ou senha inválidos";
+    }
+
+    if(errorCode == "ERROR_EMAIL_ALREADY_IN_USE"){
+      return "E-mail já cadastrado!";
+    }
+
+    return "Houve um erro desconhecido";
   }
 }

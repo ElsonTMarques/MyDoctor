@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Seja Bem-Vindo, ${_user.name}"),
+        title: Text("Seja Bem-Vindo, ${_user?.name ?? ""}"),
         backgroundColor: Color(0xffABCFF2),
       ),
       drawer: DrawerMenu(),

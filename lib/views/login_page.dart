@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   String showHandleMessages(String errorCode){
-    if(errorCode == "ERROR_INVALID_EMAIL"){
+    if(errorCode == "ERROR_INVALID_EMAIL"){ // ERROR_EMAIL_ALREADY_IN_USE < tem q tratar
       return "Formato de e-mail inválido";
     }
 
