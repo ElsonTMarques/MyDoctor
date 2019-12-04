@@ -2,6 +2,13 @@
 
 A new Flutter project.
 
+**Integrantes do grupo**  
+Elson Tavares Marques  150006559  
+Eliara Costa  160006442  
+Matheus Camilo  120006204  
+Matheus Jair  160006384  
+Moises Coelho  160002103  
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
