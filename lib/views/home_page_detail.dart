@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:my_doctor/models/recipe.dart';
 import 'package:my_doctor/models/user.dart';
@@ -7,16 +6,14 @@ import 'package:my_doctor/services/auth.dart';
 import 'package:my_doctor/utils/common.dart';
 import 'package:my_doctor/views/drawer_menu.dart';
 
-import 'home_page_detail.dart';
-
-class HomePage extends StatefulWidget{
+class HomePageDetail extends StatefulWidget{
   @override
-  _HomePageState createState() => _HomePageState();
-  static String tag = 'home-page';
+  _HomePageDetailState createState() => _HomePageDetailState();
+  static String tag = 'home-page-detail';
 }
 
 
-class _HomePageState extends State<HomePage> {
+class _HomePageDetailState extends State<HomePageDetail> {
 
   User _user = new User();
 
@@ -38,7 +35,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Seja Bem-Vindo, ${_user?.name ?? ""}"),
+        title: Text("Detalhe da receita"),
         backgroundColor: Color(0xffABCFF2),
       ),
       drawer: DrawerMenu(),
@@ -75,15 +72,6 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
-
-  Future _foundObject() async {
-    await Navigator.of(context).pushNamed(HomePageDetail.tag);
-    Flushbar(
-      title: 'Salvar',
-      message: 'Registro do item realizado com sucesso!',
-      duration: Duration(seconds: 3),
-    )..show(context);
-  }
     
 
   Widget _buildCard(document){
@@ -99,9 +87,9 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.local_hospital, size: 70),
-                title: Text(recipeObject.remedio,
-                    style: TextStyle(color: Colors.black)),
+                title:
+                 Text(recipeObject.nomeHospital,
+                    style: TextStyle(color: Colors.black, fontSize: 19,fontWeight: FontWeight.w900,)),
                 subtitle:
                   Container(
                     padding: EdgeInsets.only(top: 5.0),
@@ -109,46 +97,80 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
+                        Divider(),
                         Text(
-                          recipeObject.descricaoRemedio,
+                          "Data de atendimento: 01/01/2019",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
+                            fontWeight: FontWeight.w900,
                           )
                         ),
                         Text(
-                          recipeObject.nomeDoutor,
+                          "Paciente:  ${_user?.name ?? ""}",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
+                            fontWeight: FontWeight.w900,
+                          )
+                        ),
+                        SizedBox(height: 20.0),
+                        Text(
+                          "Médico: ${recipeObject.nomeDoutor}",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
                           )
                         ),
                         Text(
-                          recipeObject.nomeHospital,
+                          "Especialidade:  Clinico Geral",
                           style: TextStyle(
                             color: Colors.black,
+                            fontWeight: FontWeight.w900,
                           )
                         ),
                         Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.watch_later,
-                            ),
-                            Text(
-                            'Proxima Dose em ${recipeObject.tempoProximaDose}',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w900,
-                            )
-                            ),
-                          ],
+                        Text(
+                          "Remédio: ${recipeObject.remedio}",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
+                          )
+                        ),
+                        SizedBox(height: 20.0),
+                        Text(
+                          "AMOXILINA 500MG",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
+                          )
+                        ),
+                        Text(
+                          "15 Comprimidos",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
+                          )
+                        ),
+                        Text(
+                          "Tomar uma capsula a cada 12 horas",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
+                          )
+                        ),
+                        SizedBox(height: 40.0),
+                        Text(
+                          "@${recipeObject.nomeDoutor}",
+                          style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontWeight: FontWeight.w900,
+                          )
                         ),
                         
                       ]
                     ),
                   ),
-                  onTap: _foundObject,
               ),
             ],
           )

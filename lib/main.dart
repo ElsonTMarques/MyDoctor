@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_doctor/views/doctor_page.dart';
 import 'package:my_doctor/views/home_page.dart';
+import 'package:my_doctor/views/home_page_detail.dart';
 import 'package:my_doctor/views/medicine_page.dart';
 import 'package:my_doctor/views/register_page.dart';
 import 'package:my_doctor/views/login_page.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     HomePage.tag: (context) => HomePage(),
     Medicine.tag: (context) => Medicine(),
     DoctorPage.tag: (context) => DoctorPage(),
+    HomePageDetail.tag: (context) => HomePageDetail(),
   };
 
   @override
